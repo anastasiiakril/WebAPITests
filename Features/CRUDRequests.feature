@@ -1,4 +1,4 @@
-﻿Feature: API requests
+﻿Feature: CRUD operations 
 
 
 

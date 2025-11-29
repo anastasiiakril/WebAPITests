@@ -18,7 +18,7 @@ namespace WebAPITests.Features
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "3.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class APIRequestsFeature
+    public partial class CRUDOperationsFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
@@ -27,9 +27,9 @@ namespace WebAPITests.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "API requests", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "CRUD operations", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
-#line 1 "ApiRequests.feature"
+#line 1 "CRUDRequests.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -117,12 +117,12 @@ namespace WebAPITests.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/ApiRequests.feature.ndjson", 6);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/CRUDRequests.feature.ndjson", 6);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test get request")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test get request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "API requests")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
         public async global::System.Threading.Tasks.Task TestGetRequest()
         {
@@ -161,7 +161,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test create request")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test create request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "API requests")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
         public async global::System.Threading.Tasks.Task TestCreateRequest()
         {
@@ -200,7 +200,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test update request")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test update request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "API requests")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
         public async global::System.Threading.Tasks.Task TestUpdateRequest()
         {
@@ -242,7 +242,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test delete request")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test delete request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "API requests")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
         public async global::System.Threading.Tasks.Task TestDeleteRequest()
         {

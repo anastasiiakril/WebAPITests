@@ -23,7 +23,7 @@ namespace WebAPITests {
         public string checkout { get; set; }
     }
 
-    internal class PostModel
+    public class PostModel
     {
         public string firstname { get; set; }
         public string lastname { get; set; }
