@@ -1,0 +1,139 @@
+using System;
+using System.Net;
+using Reqnroll;
+using RestSharp;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace WebAPITests.StepDefinitions
+{
+    [Binding]
+    public class APIRequestsStepDefinitions
+    {
+        private RestClient client;
+        private RestRequest request;
+        private RestResponse response;
+
+        [Given("connected")]
+        public void GivenConnected()
+        {
+            client = new RestClient("https://restful-booker.herokuapp.com/");
+        }
+
+        [Given("create get request")]
+        public void GivenCreateGetRequest()
+        {
+            request = new RestRequest("booking",Method.Get);
+        }
+
+        [When("send request")]
+        public void WhenSendRequest()
+        {
+            response = client.Execute(request);
+        }
+
+        [Then("response is success")]
+        public void ThenResponseIsSuccess()
+        {
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+        
+        // ---------------
+
+        [Given("create create request")]
+        public void GivenCreateCreateRequest()
+        {
+            request = new RestRequest("booking",Method.Post);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new PostModel()
+            {
+                firstname = "Elliot",
+                lastname = "Smith",
+                totalprice = 2003,
+                depositpaid = false,
+                bookingdates = new BookingDates()
+                {
+                    checkin = "2025-10-14",
+                    checkout = "2025-10-21"
+                },
+                additionalneeds = "Peanut butter sandwich for breakfast"
+            });
+        }
+
+        [Then("response create is success")]
+        public void ThenResponseCreateIsSuccess()
+        {
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        //---------------
+
+        private string token;
+
+        [Given("create auth token")]
+        public void GivenCreateAuthToken()
+        {
+            var authRequest = new AuthRequest();
+
+            var request = new RestRequest("auth", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Accept", "application/json");
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(authRequest);
+
+            var response = client.Execute<AuthResponse>(request);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception($"Auth failed: {response.StatusCode}");
+
+            token = response.Data.token;
+        }
+
+
+        [Given("create update request")]
+        public void GivenCreateUpdateRequest()
+        {
+
+            request = new RestRequest("booking/41", Method.Put);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Cookie", $"token={token}");
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new PostModel()
+            {
+                firstname = "Bob",
+                lastname = "Bobby",
+                totalprice = 500,
+                depositpaid = true,
+                bookingdates = new BookingDates()
+                {
+                    checkin = "2025-11-01",
+                    checkout = "2025-11-10"
+                }
+            });
+        }
+
+        [Then("response update is success")]
+        public void ThenResponseUpdateIsSuccess()
+        {
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Given("create delete request")]
+        public void GivenCreateDeleteRequest()
+        {
+            request = new RestRequest("booking/1",Method.Delete);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Cookie", $"token={token}");
+        }
+
+        [Then("response delete is success")]
+        public void ThenResponseDeleteIsSuccess()
+        {
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+        }
+
+    }
+}
