@@ -3,6 +3,7 @@ using System.Net;
 using Reqnroll;
 using RestSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WebAPITests.Hooks;
 
 namespace WebAPITests.StepDefinitions
 {
@@ -69,27 +70,7 @@ namespace WebAPITests.StepDefinitions
 
         //---------------
 
-        private string token;
-
-        [Given("create auth token")]
-        public void GivenCreateAuthToken()
-        {
-            var authRequest = new AuthRequest();
-
-            var request = new RestRequest("auth", Method.Post);
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Accept", "application/json");
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(authRequest);
-
-            var response = client.Execute<AuthResponse>(request);
-
-            if (response.StatusCode != HttpStatusCode.OK)
-                throw new Exception($"Auth failed: {response.StatusCode}");
-
-            token = response.Data.token;
-        }
-
+     
 
         [Given("create update request")]
         public void GivenCreateUpdateRequest()
@@ -98,7 +79,7 @@ namespace WebAPITests.StepDefinitions
             request = new RestRequest("booking/41", Method.Put);
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Cookie", $"token={token}");
+            request.AddHeader("Cookie", $"token={AuthHooks.token}");
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(new PostModel()
             {
@@ -126,7 +107,7 @@ namespace WebAPITests.StepDefinitions
             request = new RestRequest("booking/1",Method.Delete);
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Cookie", $"token={token}");
+            request.AddHeader("Cookie", $"token={AuthHooks.token}");
         }
 
         [Then("response delete is success")]

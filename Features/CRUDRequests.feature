@@ -22,7 +22,6 @@ Scenario: test create request
 @tag1
 Scenario: test update request
 	Given connected
-	And create auth token
 	And create update request
 	When send request
 	Then response update is success
@@ -31,7 +30,6 @@ Scenario: test update request
 @tag1
 Scenario: test delete request
 	Given connected
-	And create auth token
 	And create delete request
 	When send request
 	Then response delete is success

@@ -225,15 +225,12 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.GivenAsync("connected", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 25
- await testRunner.AndAsync("create auth token", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 26
  await testRunner.AndAsync("create update request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 26
  await testRunner.WhenAsync("send request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 27
  await testRunner.ThenAsync("response update is success", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -253,7 +250,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("test delete request", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 32
+#line 31
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -263,19 +260,16 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 33
+#line 32
  await testRunner.GivenAsync("connected", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 34
- await testRunner.AndAsync("create auth token", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 35
+#line 33
  await testRunner.AndAsync("create delete request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 36
+#line 34
  await testRunner.WhenAsync("send request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 37
+#line 35
  await testRunner.ThenAsync("response delete is success", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
