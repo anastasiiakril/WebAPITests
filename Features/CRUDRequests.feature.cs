@@ -115,26 +115,33 @@ namespace WebAPITests.Features
             await testRunner.CollectScenarioErrorsAsync();
         }
         
+        public virtual async global::System.Threading.Tasks.Task FeatureBackgroundAsync()
+        {
+#line 5
+#line hidden
+#line 6
+    await testRunner.GivenAsync("the API is initialized", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+        }
+        
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/CRUDRequests.feature.ndjson", 6);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/CRUDRequests.feature.ndjson", 3);
         }
         
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test get request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test get request")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("CRUD")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("CRUD")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
-        public async global::System.Threading.Tasks.Task TestGetRequest()
+        public async global::System.Threading.Tasks.Task CRUD()
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "0";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("test get request", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("CRUD", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 6
-this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line 8
+  this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -143,134 +150,32 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
- await testRunner.GivenAsync("connected", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 8
- await testRunner.AndAsync("create get request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 5
+await this.FeatureBackgroundAsync();
 #line hidden
 #line 9
- await testRunner.WhenAsync("send request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("I create a booking", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 10
- await testRunner.ThenAsync("response is success", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("the booking is created successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test create request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test create request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
-        public async global::System.Threading.Tasks.Task TestCreateRequest()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
-            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "1";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("test create request", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
-            string[] tagsOfRule = ((string[])(null));
-            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 12
+    await testRunner.WhenAsync("I get the booking", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 13
+    await testRunner.ThenAsync("the booking is retrieved successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
 #line 15
-this.ScenarioInitialize(scenarioInfo, ruleInfo);
+    await testRunner.WhenAsync("I update the booking", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                await testRunner.SkipScenarioAsync();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
 #line 16
- await testRunner.GivenAsync("connected", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 17
- await testRunner.AndAsync("create create request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.ThenAsync("the booking is updated successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 18
- await testRunner.WhenAsync("send request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("I delete the booking", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 19
- await testRunner.ThenAsync("response create is success", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test update request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test update request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
-        public async global::System.Threading.Tasks.Task TestUpdateRequest()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
-            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "2";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("test update request", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
-            string[] tagsOfRule = ((string[])(null));
-            global::Reqnroll.RuleInfo ruleInfo = null;
-#line 23
-this.ScenarioInitialize(scenarioInfo, ruleInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                await testRunner.SkipScenarioAsync();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 24
- await testRunner.GivenAsync("connected", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 25
- await testRunner.AndAsync("create update request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 26
- await testRunner.WhenAsync("send request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 27
- await testRunner.ThenAsync("response update is success", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("test delete request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("test delete request")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CRUD operations")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
-        public async global::System.Threading.Tasks.Task TestDeleteRequest()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
-            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "3";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("test delete request", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
-            string[] tagsOfRule = ((string[])(null));
-            global::Reqnroll.RuleInfo ruleInfo = null;
-#line 31
-this.ScenarioInitialize(scenarioInfo, ruleInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                await testRunner.SkipScenarioAsync();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 32
- await testRunner.GivenAsync("connected", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 33
- await testRunner.AndAsync("create delete request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 34
- await testRunner.WhenAsync("send request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 35
- await testRunner.ThenAsync("response delete is success", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("the booking is deleted successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
