@@ -190,7 +190,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
 #line 16
  await testRunner.AndAsync("create change request with currencies \"USD,EUR\" relative to source \"UAH\" starting" +
-                        " \"2025-11-30\" ending \"2025-12-01\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+                        " \"2025-12-01\" ending \"2025-12-02\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 17
  await testRunner.WhenAsync("send currency change request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");

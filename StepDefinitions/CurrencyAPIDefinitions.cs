@@ -88,8 +88,9 @@ namespace WebAPITests.StepDefinitions
         public void ThenChangeOfTheCurrenciesIsReturned()
         {
             
-            Assert.AreEqual("2025-12-01", changeResponse.Data.end_date);
-            Assert.AreEqual("2025-11-30", changeResponse.Data.start_date);
+            Assert.AreEqual("2025-12-02", changeResponse.Data.end_date);
+            Assert.AreEqual("2025-12-01", changeResponse.Data.start_date);
+            //for free version of api change end_date and start_date to yesterday date and today date
             Assert.AreEqual("UAH", changeResponse.Data.source);
             foreach (var quote in changeResponse.Data.quotes)
             {
