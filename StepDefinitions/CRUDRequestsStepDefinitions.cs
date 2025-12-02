@@ -14,11 +14,16 @@ namespace WebAPITests.StepDefinitions
         private RestRequest request;
         private RestResponse response;
 
+        public static int CreatedBookingId;
+
         [Given("connected")]
         public void GivenConnected()
         {
             client = new RestClient("https://restful-booker.herokuapp.com/");
         }
+
+
+        // READ---------------
 
         [Given("create get request")]
         public void GivenCreateGetRequest()
@@ -38,7 +43,8 @@ namespace WebAPITests.StepDefinitions
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
         
-        // ---------------
+
+        // POST ---------------
 
         [Given("create create request")]
         public void GivenCreateCreateRequest()
@@ -66,17 +72,22 @@ namespace WebAPITests.StepDefinitions
         public void ThenResponseCreateIsSuccess()
         {
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            var json = Newtonsoft.Json.Linq.JObject.Parse(response.Content);
+            CreatedBookingId = (int)json["bookingid"];
+
+            Console.WriteLine($"Created booking ID: {CreatedBookingId}");
+
         }
 
-        //---------------
 
-     
+
+        // UPDATE---------------
 
         [Given("create update request")]
         public void GivenCreateUpdateRequest()
         {
 
-            request = new RestRequest("booking/41", Method.Put);
+            request = new RestRequest($"booking/{CreatedBookingId}", Method.Put);
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", $"token={AuthHooks.token}");
@@ -101,10 +112,13 @@ namespace WebAPITests.StepDefinitions
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
 
+
+        // DELETE---------------
+
         [Given("create delete request")]
         public void GivenCreateDeleteRequest()
         {
-            request = new RestRequest("booking/1",Method.Delete);
+            request = new RestRequest($"booking/{CreatedBookingId}", Method.Delete);
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", $"token={AuthHooks.token}");
